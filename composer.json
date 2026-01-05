@@ -1,6 +1,6 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "thekiryukha/order-service",
+    "name": "thekiryukha/todo",
     "type": "project",
     "license": "MIT",
     "require": {
