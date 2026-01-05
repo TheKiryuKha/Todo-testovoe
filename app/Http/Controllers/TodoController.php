@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers;
 
 use App\Actions\CreateTodo;
+use App\Actions\DeleteTodo;
 use App\Actions\EditTodo;
 use App\Http\Requests\CreateTodoRequest;
 use App\Http\Requests\EditTodoRequest;
@@ -39,5 +40,12 @@ final readonly class TodoController
         $action->handle($todo, $request->toDto());
 
         return response()->json(status: 200);
+    }
+
+    public function destroy(Todo $todo, DeleteTodo $action): JsonResponse
+    {
+        $action->handle($todo);
+
+        return response()->json(status: 204);
     }
 }

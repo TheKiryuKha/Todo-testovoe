@@ -6,3 +6,4 @@ Route::get('/', 'index')->name('index');
 Route::post('/', 'store')->name('store');
 Route::get('/{todo}', 'show')->name('show');
 Route::put('/{todo}', 'update')->name('update');
+Route::delete('/{todo}', 'destroy')->name('destroy');
