@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-use Illuminate\Contracts\View\View;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn (): View => view('welcome'));
+Route::prefix('todos')
+    ->as('todos:')
+    ->controller(TodoController::class)
+    ->group(base_path('routes/todos.php'));
