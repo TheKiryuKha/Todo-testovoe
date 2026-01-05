@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Enums\TodoStatus;
 use App\Models\Todo;
 
 test('to array', function (): void {
@@ -16,4 +17,10 @@ test('to array', function (): void {
             'created_at',
             'updated_at',
         ]);
+});
+
+test('status', function (): void {
+    $todo = Todo::factory()->create();
+
+    expect($todo->status)->toBeInstanceOf(TodoStatus::class);
 });
