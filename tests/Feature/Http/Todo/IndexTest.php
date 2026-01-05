@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-it("return's correct status code", function () {
+it("return's correct status code", function (): void {
     $this->get(
         route('todos:index')
     )->assertStatus(
@@ -10,7 +10,7 @@ it("return's correct status code", function () {
     );
 });
 
-it("retun's correct data format", function () {
+it("retun's correct data format", function (): void {
     $response = $this->get(route('todos:index'));
 
     $response->assertJsonStructure([

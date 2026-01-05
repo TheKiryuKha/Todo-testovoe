@@ -5,7 +5,7 @@ declare(strict_types=1);
 use App\Enums\TodoStatus;
 use App\Models\Todo;
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->data = [
         'title' => 'test',
         'description' => 'test',
@@ -14,7 +14,7 @@ beforeEach(function () {
     $this->todo = Todo::factory()->create();
 });
 
-it("return's correct status code", function () {
+it("return's correct status code", function (): void {
     $this->put(
         route('todos:update', $this->todo), $this->data
     )->assertStatus(
@@ -22,7 +22,7 @@ it("return's correct status code", function () {
     );
 });
 
-it('updates todo in database', function () {
+it('updates todo in database', function (): void {
     $this->put(route('todos:update', $this->todo), $this->data);
 
     expect($this->todo->refresh())
@@ -31,7 +31,7 @@ it('updates todo in database', function () {
         ->status->value->toBe($this->data['status']);
 });
 
-test('validation', function () {
+test('validation', function (): void {
     $response = $this->put(route('todos:update', $this->todo));
 
     $response->assertInvalid([

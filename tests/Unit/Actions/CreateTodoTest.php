@@ -7,7 +7,7 @@ use App\DTOs\TodoDTO;
 use App\Enums\TodoStatus;
 use App\Models\Todo;
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->data = TodoDTO::make([
         'title' => 'test',
         'description' => 'description',
@@ -16,7 +16,7 @@ beforeEach(function () {
 });
 
 it("create's todo", function (): void {
-    $action = app(CreateTodo::class);
+    $action = resolve(CreateTodo::class);
 
     $action->handle($this->data);
 
@@ -24,7 +24,7 @@ it("create's todo", function (): void {
 });
 
 it("return's todo", function (): void {
-    $action = app(CreateTodo::class);
+    $action = resolve(CreateTodo::class);
 
     $todo = $action->handle($this->data);
 

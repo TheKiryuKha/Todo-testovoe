@@ -11,7 +11,7 @@ it("return's correct status code", function (): void {
     );
 });
 
-it("delete's todo", function () {
+it("delete's todo", function (): void {
     $todo = Todo::factory()->create();
 
     $this->delete(route('todos:destroy', $todo));

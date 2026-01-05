@@ -3,7 +3,7 @@
 declare(strict_types=1);
 use App\Models\Todo;
 
-it("return's correct status code", function () {
+it("return's correct status code", function (): void {
     $this->get(
         route('todos:show', Todo::factory()->create())
     )->assertStatus(
@@ -11,7 +11,7 @@ it("return's correct status code", function () {
     );
 });
 
-it("retun's correct data format", function () {
+it("retun's correct data format", function (): void {
     $todo = Todo::factory()->create();
 
     $response = $this->get(route('todos:show', $todo));

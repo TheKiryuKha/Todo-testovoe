@@ -3,7 +3,7 @@
 declare(strict_types=1);
 use App\Enums\TodoStatus;
 
-beforeEach(function () {
+beforeEach(function (): void {
     $this->data = [
         'title' => 'test',
         'description' => 'test',
@@ -11,7 +11,7 @@ beforeEach(function () {
     ];
 });
 
-it("return's correct status code", function () {
+it("return's correct status code", function (): void {
     $this->post(
         route('todos:store'), $this->data
     )->assertStatus(
@@ -19,13 +19,13 @@ it("return's correct status code", function () {
     );
 });
 
-it("save's todo in database", function () {
+it("save's todo in database", function (): void {
     $this->post(route('todos:store'), $this->data);
 
     $this->assertDatabaseHas('todos', $this->data);
 });
 
-it("retun's correct data format", function () {
+it("retun's correct data format", function (): void {
     $response = $this->post(route('todos:store', $this->data));
 
     $response->assertJsonStructure([
@@ -37,7 +37,7 @@ it("retun's correct data format", function () {
     ]);
 });
 
-test('validation', function () {
+test('validation', function (): void {
     $response = $this->post(route('todos:store'));
 
     $response->assertInvalid([

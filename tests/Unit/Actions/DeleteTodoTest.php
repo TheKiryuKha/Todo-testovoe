@@ -7,7 +7,7 @@ use App\Models\Todo;
 
 it("delete's todo", function (): void {
     $todo = Todo::factory()->create();
-    $action = app(DeleteTodo::class);
+    $action = resolve(DeleteTodo::class);
 
     $action->handle($todo);
 
